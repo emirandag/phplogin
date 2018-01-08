@@ -13,7 +13,7 @@ and open the template in the editor.
         <form action="valida_login.php" method="POST">
             USUARIO: <input type="text" name="user"/>
             PASSWORD: <input type="password" name="pass" />
-            <input type="submit" action="Validar">
+            <input type="submit" value="Validar">
         </form>
     </body>
 </html>

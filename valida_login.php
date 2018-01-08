@@ -16,37 +16,26 @@ if ( $con->connect_error ) {
     echo ("Fallo en la conexión".$con->connect_error);
 }
 
-echo "Conexión establecida<br>";
+
 
 $nombre = $_POST['user'];
 $pass = $_POST['pass'];
+
     
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM users where name= '".$nombre."' AND password = md5('".$pass."');";
+
 $result = $con->query($sql);
-
+        if ($result->num_rows > 0) {
+            $result = $result->fetch_assoc();
+            session_start();
+            $_SESSION['user'] = $result;
+             require("mostra_dades.php");
+             $con->close();
+        } else {
+            echo "sin registros";
+        }
 ?>
-<?php
 
-
-
-if (isset($_POST['user']) && isset($_POST['pass'])) {
-        session_start();
-        $_SESSION['login_user'] = $_POST['user'];
-        echo "Sesión iniciada " . $_SESSION['login_user'];
-}
-   else {
-        echo "Credenciales invalidas";
-        //session_start();
-       //$_SESSION['user'] = $_POST['user'];
-        //echo "Sesión iniciada " . $_SESSION['user'];
-    
-}
-if (isset($_SESSION['login_user'])) {
-    
-        require("menu.php");
-    
-}
-?>
 
 <?php
 

@@ -1,8 +1,13 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$actualiza = "update users set name='".$nombre.", email='".$mail."' where name='"._SESSION['user']['name']."'";
+
+$rs = mysql_query($actualiza);
+
+if ($rs == false) {
+    echo '<p>ERROR</p>';
+} else {
+    echo '<p>*****CORRECTO******</p>';
+}
+?>
 

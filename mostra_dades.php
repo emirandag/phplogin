@@ -10,13 +10,21 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        
+        
         <?php
-        if (isset($_POST['user']) && isset($_POST['pass'])) {
-            session_start();
-            $_SESSION['login_user'] = $_POST['user'];
-            echo "Nombre: " . $_SESSION['login_user'];
-            echo "Correo: " . $_SESSION['mail'];
-        } 
+        
+        session_start();
+        
+        echo "Nombre: ".$_SESSION['user']['name']."<br>"."Email: ".$_SESSION['user']['email'];
+                
         ?>
+        
+        <form method="POST" action="edicio_usuari.php">
+            <input type="submit" value="Editar">
+        </form>
+        <form method="POST" action="esborra_usuari.php">
+            <input type="submit" value="Borrar">
+        </form>
     </body>
 </html>
