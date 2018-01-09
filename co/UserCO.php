@@ -21,8 +21,6 @@ if (isset($idNav)) {
         $email = $_POST['mail'];
         $pass = $_POST['password'];
         $dao->registro($name, $email, $pass);
-    } else {
-    echo $idNav;
-    }
+    } 
 }
 ?>

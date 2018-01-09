@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="valida_login.php" method="POST">
+        <form method="POST" action="UserCO.php">
             USUARIO: <input type="text" name="user"/>
             PASSWORD: <input type="password" name="pass" />
             <input type="submit" value="Validar">

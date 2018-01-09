@@ -13,19 +13,26 @@ class UserDAO {
         $this->con = $conection->getConexion();
     }
 
+    //funcion para realizar el registro del usuario
     function registro($name, $email, $pass) {
         if ($this->con != FALSE) {
             $insert = "INSERT INTO users (email, name, password) VALUES ('" . $email . "', '" . $name . "', md5('" . $pass . "'))";
 
             //Comprobación de insert
             if ($this->con->query($insert) === TRUE) {
-                echo "Se ha registrado correctamente";
+                echo "¡¡¡Se ha registrado correctamente!!!";
             } else {
-                echo "ERROR" . $con->error;
+                echo "¡¡¡ERROR!!!" . $con->error;
             }
             $this->con->close();
         }
     }
+    
+    
+    function valida() {
+        
+    }
+    
 
 }
 

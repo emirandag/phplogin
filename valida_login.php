@@ -1,7 +1,4 @@
-<?php
 
-include("header.php");
-?>
 
 <?php
 
@@ -36,8 +33,3 @@ $result = $con->query($sql);
         }
 ?>
 
-
-<?php
-
-include("footer.php");
-?>
