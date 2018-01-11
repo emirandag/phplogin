@@ -13,7 +13,6 @@ class Conectar {
     }
     
     public function getConexion() {
-        
         $con = new mysqli($this->host,$this->user,$this->pass,$this->db);
         
         if ($con->connect_error) {
@@ -21,7 +20,6 @@ class Conectar {
             return FALSE;
         } else {
         return $con;
-
         }        
     }
 }

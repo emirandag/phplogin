@@ -16,11 +16,19 @@ if (isset($idNav)) {
     $dao = new UserDAO();
 
     if ($idNav == "registro") {
-        
+
         $name = $_POST['nombre'];
         $email = $_POST['mail'];
         $pass = $_POST['password'];
         $dao->registro($name, $email, $pass);
-    } 
+        
+    }
+
+    if ($idNav == "valida") {
+
+        $user = $_POST['user'];
+        $pass = $_POST['pass'];
+        $dao->valida($user, $pass);
+    }
 }
 ?>

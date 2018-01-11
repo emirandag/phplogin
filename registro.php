@@ -16,7 +16,7 @@ and open the template in the editor.
             PASSWORD: <input type="password" name="password" /><br>
             EMAIL: <input type="text" name="mail" /><br>
             <input type="hidden" name="idNav" value="registro" />
-            <input type="submit" action="Registrar" value="Registrar"/><br>
+            <input type="submit" value="Registrar"/><br>
         </form> 
     </body>
 </html>
