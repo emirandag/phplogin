@@ -30,5 +30,20 @@ if (isset($idNav)) {
         $pass = $_POST['pass'];
         $dao->valida($user, $pass);
     }
+    
+    if ($idNav == "borrar") {
+        
+          $id = $_POST['id'];
+          $dao->borrar($id);  
+    }
+    
+    if ($idNav == "editar") {
+
+        $name = $_POST['nombre'];
+        $email = $_POST['email'];
+        $id = $_POST['id'];
+        $dao->editar($name, $email, $id);
+        
+    }
 }
 ?>

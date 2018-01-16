@@ -12,9 +12,9 @@ and open the template in the editor.
     <body>
         
         <form method="POST" action="co/UserCO.php">
-            NOMBRE: <input type="text" name="nombre" /><br>
-            PASSWORD: <input type="password" name="password" /><br>
-            EMAIL: <input type="text" name="mail" /><br>
+            NOMBRE: <input type="text" name="nombre" required/><br>
+            PASSWORD: <input type="password" name="password" required/><br>
+            EMAIL: <input type="text" name="mail" required/><br>
             <input type="hidden" name="idNav" value="registro" />
             <input type="submit" value="Registrar"/><br>
         </form> 
