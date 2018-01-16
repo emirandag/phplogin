@@ -29,7 +29,7 @@ class UserDAO {
 
     function valida($user, $pass) {
         if ($this->con != FALSE) {
-            $login = "SELECT * FROM users WHERE name= '" . $user."'";
+            $login = "SELECT * FROM users WHERE email= '" . $user."'";
             //si pass esta vacio entonces select where name = user;
             if ($pass != NULL && isset($pass) && $pass != "") {
                 $login .= " AND password = md5('" . $pass . "');";

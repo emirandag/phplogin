@@ -6,9 +6,10 @@
         <title>login</title>
     </head>
     <body>
+        <h1>Iniciar sesión</h1>
         <form method="POST" action="co/UserCO.php">
-            USUARIO: <input type="text" name="user"/>
-            PASSWORD: <input type="password" name="pass" />
+            <b>USUARIO:</b> <input type="text" name="user"/>
+            <b>PASSWORD:</b> <input type="password" name="pass" />
             <input type="hidden" name="idNav" value="valida" />
             <input type="submit" value="Validar" />
         </form>

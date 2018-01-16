@@ -10,8 +10,12 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <h1>Formulario PHP</h1>
+        <form method="POST" action="registro.php">
+            <input type="submit" value="Registrarse" />
+        </form>
+        <form method="POST" action="formulari_login.php">
+            <input type="submit" value="Iniciar sesión" />
+        </form>
     </body>
 </html>

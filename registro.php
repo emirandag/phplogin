@@ -10,11 +10,11 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        
+        <h1>Registrarse</h1>
         <form method="POST" action="co/UserCO.php">
-            NOMBRE: <input type="text" name="nombre" required/><br>
-            PASSWORD: <input type="password" name="password" required/><br>
-            EMAIL: <input type="text" name="mail" required/><br>
+            <b>NOMBRE:</b> <input type="text" name="nombre" required/><br>
+            <b>EMAIL:</b> <input type="text" name="mail" required/><br>
+            <b>PASSWORD:</b> <input type="password" name="password" required/><br>
             <input type="hidden" name="idNav" value="registro" />
             <input type="submit" value="Registrar"/><br>
         </form> 
