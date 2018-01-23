@@ -45,5 +45,7 @@ if (isset($idNav)) {
         $dao->editar($name, $email, $id);
         
     }
+    
+    
 }
 ?>

@@ -7,6 +7,7 @@ spl_autoload_register(function($nombreClase) {
 class UserDAO {
 
     public $con;
+    
 
     function __construct() {
         $conection = new Conectar();
@@ -29,12 +30,12 @@ class UserDAO {
 
     function valida($user, $pass) {
         if ($this->con != FALSE) {
-            $login = "SELECT * FROM users WHERE email= '" . $user."'";
+            $login = "SELECT * FROM users WHERE email= '" . $user . "'";
             //si pass esta vacio entonces select where name = user;
             if ($pass != NULL && isset($pass) && $pass != "") {
                 $login .= " AND password = md5('" . $pass . "');";
             }
-            
+
             $result = $this->con->query($login);
             if ($result->num_rows > 0) {
                 $result = $result->fetch_assoc();
@@ -45,6 +46,8 @@ class UserDAO {
             } else {
                 echo "sin registros";
             }
+
+            
         }
     }
 
@@ -75,7 +78,7 @@ class UserDAO {
             } else {
                 echo "xxxxxxxERROR AL ACTUALIZARXXXXXXXXXX" . $con->error;
             }
-           // $this->con->close();
+            // $this->con->close();
 
             $this->valida($name, "");
         }

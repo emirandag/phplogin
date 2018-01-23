@@ -26,7 +26,7 @@ and open the template in the editor.
 
                 if (n === 1)
                     alert("Se han actualizado tus datos");
-            } 
+            }
 
         </script>
     </head>
@@ -37,8 +37,17 @@ and open the template in the editor.
         session_start();
         ?>
 
+        
+        <div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="mostra_dades.php">Perfil</a></li>    
+                <li><a href="productos.php">Productos</a></li> 
+                <li><a href="carro.php">Carro</a></li> 
+            </ul>
+        </div>
         <h1>¡Bienvenido a tu sesión!</h1>
-        <form method="POST" action="co/UserCO.php" name="userDatos">
+        <form method="POST" action="co/controller.php" name="userDatos">
             <input type="hidden" name="idNav" value="" />
             <b>NOMBRE:</b> <input type="text" name="nombre" value="<?php echo $_SESSION['user']['name'] ?>"/><br>
             <b>EMAIL:</b>  <input type="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>"/><br>

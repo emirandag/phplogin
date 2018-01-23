@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         
-        <form method="POST" action="co/UserCO.php">
+        <form method="POST" action="co/controller.php">
             NOMBRE: <input type="text" name="nombre"/>
             EMAIL: <input type="text" name="email"/>
             <input type="hidden" name="idNav" value="editar" />

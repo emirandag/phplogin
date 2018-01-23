@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         
-        <form method="POST" action="co/UserCO.php">
+        <form method="POST" action="co/controller.php">
             Confirme su email: <input type="text" name="email"/>
             <input type="hidden" name="idNav" value="borrar" />
             <input type="submit" value="Borrar">

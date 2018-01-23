@@ -24,7 +24,7 @@ and open the template in the editor.
     <body>
         <h1>Registrarse</h1>
         <div id="caja">
-            <form name="valorRegistro" method="POST" action="co/UserCO.php">
+            <form name="valorRegistro" method="POST" action="co/controller.php">
                 <b>NOMBRE:</b> <input type="text" name="nombre" /><br>
                 <b>EMAIL:</b> <input type="text" name="mail" /><br>
                 <b>PASSWORD:</b> <input type="password" name="password" /><br>
