@@ -1,20 +1,19 @@
 <?php
 
-spl_autoload_register(function ( $nombreClase ) {
-    require_once $nombreClase . '.php';
-});
+class producto {
 
-class Producto {
+    private $id;
+    private $name;
+    private $descripcion;
+    private $precio;
 
-    private $id = "id";
-    private $name = "name";
-    private $descripcion = "descripcion";
-    private $precio = "precio";
-
-    function __construct() {
-        
+    function __construct($id, $name, $descripcion, $precio) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->descripcion = $descripcion;
+        $this->precio = $precio;
     }
-    
+
     function getId() {
         return $this->id;
     }
@@ -46,8 +45,6 @@ class Producto {
     function setPrecio($precio) {
         $this->precio = $precio;
     }
-
-    
 
 }
 

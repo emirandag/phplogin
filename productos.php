@@ -1,5 +1,18 @@
 <!--  http://aprendeenlinea.udea.edu.co/lms/moodle/mod/page/view.php?id=75233 -->
 
+<?php
+//import automatico de clases
+spl_autoload_register(function($nombreClase) {
+    switch ($nombreClase) {
+        case "productosPDO":
+            require_once "dao/" . $nombreClase . ".php";
+            break;
+        case "producto":
+            require_once "bean/" . $nombreClase . ".php";
+            break;
+    }
+});
+?>
 
 <html> 
     <head> 
@@ -11,69 +24,18 @@
             <table border="1"> 
                 <?php
                 $products = new productosPDO();
-                
-                foreach ($products->getProductos as $value)
-                    
-                    ?>
-                <tr> 
+                $array = $products->getProductos();
+                foreach ($array as $producto) {
+                    echo '<tr> 
                     <td width="150"> 
-                        Producto: <b><br> 
-                            Descripcion: <b></b><br> 
-                            Precio: <b></b><br> 
-                            <input type="submit" name="TV" id="button" value="Añadir al carrito">
-                            </td> 
-                            <td width="150"> 
-                                Producto: <b></b><br>
-                                Descripcion: <b></b><br> 
-                                Precio: <b></b><br> 
-                                <input type="submit" name="DVD" id="button2" value="Añadir al carrito">
-                            </td> 
-                            <td width="150"> 
-                                Producto: <b></b><br> 
-                                Descripcion: <b></b><br> 
-                                Precio: <b></b><br> 
-                                <input type="submit" name="MP4" id="button3" value="Añadir al carrito">
-                            </td> 
-                </tr> 
-                <tr> 
-                    <td> 
-                        Producto: <b></b><br> 
-                        Descripcion: <b>12"</b><br> 
-                        Precio: <b>1500000</b><br> 
-                        <input type="submit" name="Laptop" id="button3" value="Añadir al carrito">
-                    </td> <td> 
-                        Producto: <b>MP3</b><br> 
-                        Descripcion: <b>2GB</b><br> 
-                        Precio: <b>100000</b><br> 
-                        <input type="submit" name="MP3" id="button3" value="Añadir al carrito">
+                        Producto: <b> ' . $producto->getName() . '</b><br> 
+                        Descripcion: <b>' . $producto->getDescripcion().'</b><br> 
+                        Precio: <b>'. $producto->getPrecio() .'</b><br> 
+                        <input type="submit" name="TV" id="button" value="Añadir al carrito">
                     </td> 
-                    <td> 
-                        Producto: <b>Cámara</b><br> 
-                        Descripcion: <b>12Mpx</b><br> 
-                        Precio: <b>250000</b><br> 
-                        <input type="submit" name="Cámara" id="button3" value="Añadir al carrito">
-                    </td> 
-                </tr> 
-                <tr> 
-                    <td> 
-                        Producto: <b>Celular</b><br> 
-                        Descripcion: <b>Negro</b><br> 
-                        Precio: <b>200000</b><br> 
-                        <input type="submit" name="Celular" id="button3" value="Añadir al carrito">
-                    </td> 
-                    <td> 
-                        Producto: <b>PSP</b><br> 
-                        Descripcion: <b>Gris</b><br> 
-                        Precio: <b>500000</b><br> 
-                        <input type="submit" name="PSP" id="button3" value="Añadir al carrito">
-                    </td> 
-                    <td> 
-                        Producto: <b>Impresora</b><br> 
-                        Descripcion: <b>Multifuncional</b><br> 
-                        Precio: <b>300000</b><br> 
-                        <input type="submit" name="Impresora" id="button3" value="Añadir al carrito">
-                    </td> 
-                </tr> 
+                </tr>';
+                }
+                ?>
             </table> 
         </form> 
         <form action="productos.php" method="get"> 

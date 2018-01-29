@@ -5,7 +5,7 @@ class Conectar {
     private $host, $user, $pass, $db;
     
     public function __construct() {
-        $config = require_once '../config/config.php';
+        $config = require_once './config/config.php';
         $this->host = $config['host'];
         $this->db = $config['database'];
         $this->pass = $config['password'];
