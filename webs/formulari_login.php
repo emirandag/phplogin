@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Iniciar sesión</h1>
-        <form method="POST" action="co/controller.php">
+        <form method="POST" action="../co/controller.php">
             <b>USUARIO:</b> <input type="text" name="user"/>
             <b>PASSWORD:</b> <input type="password" name="pass" />
             <input type="hidden" name="idNav" value="valida" />

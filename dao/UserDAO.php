@@ -7,7 +7,6 @@ spl_autoload_register(function($nombreClase) {
 class UserDAO {
 
     public $con;
-    
 
     function __construct() {
         $conection = new Conectar();
@@ -20,7 +19,7 @@ class UserDAO {
             $insert = "INSERT INTO users (email, name, password) VALUES ('" . $email . "', '" . $name . "', md5('" . $pass . "'))";
             //Comprobación de insert
             if ($this->con->query($insert) === TRUE) {
-                echo "¡¡¡Se ha registrado correctamente!!!<a href='../formulari_login.php'>Iniciar sesión<a>";
+                echo "¡¡¡Se ha registrado correctamente!!!<a href='../webs/formulari_login.php'>Iniciar sesión<a>";
             } else {
                 echo "<hr>¡¡¡ERROR!!!" . $con->error . "<hr>";
             }
@@ -28,9 +27,9 @@ class UserDAO {
         }
     }
 
-    function valida($user, $pass) {
+    function valida($email, $pass) {
         if ($this->con != FALSE) {
-            $login = "SELECT * FROM users WHERE email= '" . $user . "'";
+            $login = "SELECT * FROM users WHERE email= '" . $email . "'";
             //si pass esta vacio entonces select where name = user;
             if ($pass != NULL && isset($pass) && $pass != "") {
                 $login .= " AND password = md5('" . $pass . "');";
@@ -42,12 +41,10 @@ class UserDAO {
                 session_start();
                 $_SESSION['user'] = $result;
                 $this->con->close();
-                header("Location: ../mostra_dades.php");
+                header("Location: ../webs/mostra_dades.php");
             } else {
-                echo "sin registros";
+                echo "¡Usuario no válido!";
             }
-
-            
         }
     }
 
@@ -55,10 +52,10 @@ class UserDAO {
         if ($this->con != FALSE) {
 
             $delete = "DELETE FROM users WHERE user_id=" . $id;
-            echo $delete;
+
 
             if ($this->con->query($delete) === TRUE) {
-                echo "*****Sus datos han sido borrados correctamente***** <a href='../registro.php'><b>OK</b><a>";
+                echo "*****¡Sus datos han sido borrados correctamente!***** <a href='../webs/registro.php'><b>OK</b><a>";
             } else {
                 echo "<hr>¡¡¡ERROR, lo sentimos, de momento no podemos dejarte escapar!!!" . $con->error . "<hr>";
             }
@@ -71,16 +68,13 @@ class UserDAO {
 
             $update = "UPDATE users SET email = '" . $email . "', name = '" . $name . "' where user_id = " . $id;
 
-            echo $update;
+
 
             if ($this->con->query($update) === TRUE) {
-                echo "********DATOS ACTUALIZADOS CORRECTAMENTE**************";
-            } else {
-                echo "xxxxxxxERROR AL ACTUALIZARXXXXXXXXXX" . $con->error;
+                
             }
-            // $this->con->close();
-
-            $this->valida($name, "");
+            //$this->con->close();*/
+            $this->valida($email, "");
         }
     }
 

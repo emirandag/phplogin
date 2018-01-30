@@ -4,10 +4,10 @@
 spl_autoload_register(function($nombreClase) {
     switch ($nombreClase) {
         case "Conectar":
-            require_once "./db/" . $nombreClase . ".php";
+            require_once "../db/" . $nombreClase . ".php";
             break;
         case "producto":
-            require_once "./bean/" . $nombreClase . ".php";
+            require_once "../bean/" . $nombreClase . ".php";
             break;
     }
 });

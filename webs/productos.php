@@ -5,10 +5,10 @@
 spl_autoload_register(function($nombreClase) {
     switch ($nombreClase) {
         case "productosPDO":
-            require_once "dao/" . $nombreClase . ".php";
+            require_once "../dao/" . $nombreClase . ".php";
             break;
         case "producto":
-            require_once "bean/" . $nombreClase . ".php";
+            require_once "../bean/" . $nombreClase . ".php";
             break;
     }
 });
@@ -38,7 +38,7 @@ spl_autoload_register(function($nombreClase) {
                 ?>
             </table> 
         </form> 
-        <form action="productos.php" method="get"> 
+        <form action="products.php" method="get"> 
             <h1>En el carrito de compras tiene los siguientes productos</h1> 
             <input type="hidden" name="quitar"> 
             <?php
