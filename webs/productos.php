@@ -19,8 +19,8 @@ spl_autoload_register(function($nombreClase) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
     </head> 
     <body> 
-        <form action="carro.php" method="POST"> 
-            <input type="hidden" name="idProduct" value="agregar"> 
+        <form action="../co/controller.php" method="POST"> 
+            <input type="hidden" name="idNav" value="agregar" />
             <table border="1"> 
                 <?php
                 $products = new productosPDO();
@@ -31,29 +31,29 @@ spl_autoload_register(function($nombreClase) {
                         Producto: <b> ' . $producto->getName() . '</b><br> 
                         Descripcion: <b>' . $producto->getDescripcion().'</b><br> 
                         Precio: <b>'. $producto->getPrecio() .'</b><br> 
-                        <input type="submit" name="TV" id="button" value="Añadir al carrito">
+                        <input type="submit" value="Agregar al carrito" />
                     </td> 
                 </tr>';
                 }
                 ?>
             </table> 
         </form> 
-        <form action="products.php" method="get"> 
+        <!--<form action="products.php" method="get"> 
             <h1>En el carrito de compras tiene los siguientes productos</h1> 
             <input type="hidden" name="quitar"> 
             <?php
-            if (!empty($_SESSION['pedido'])) { //Si hay productos en el carrito
+           /* if (!empty($_SESSION['pedido'])) { //Si hay productos en el carrito
                 foreach ($_SESSION['pedido'] as $prod => $unidades) {
                     echo "$unidades unidades del producto $prod";
                     echo "<input type='Submit' name='$prod' value='Quitar'><br>";
-                }
+                }*/
                 ?> 
             </form> 
             <form action="confirmar.php" method="post"> 
                 <input type='Submit' name='Comprar' value="Confirmar compra"> 
-            </form> 
+            </form> -->
             <?php
-        }
+       /* }*/
         ?> 
     </body> 
 </html>
