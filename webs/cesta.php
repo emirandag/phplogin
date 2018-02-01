@@ -28,11 +28,12 @@ spl_autoload_register(function($nombreClase) {
                 foreach ($array as $key => $cesta) {
                     echo '<tr> 
                     <td width="150"> 
-                        Producto: <b> ' . $producto->get() . '</b><br> 
-                        Descripcion: <b>' . $producto->getDescripcion().'</b><br> 
-                        Precio: <b>'. $producto->getPrecio() .'</b><br> 
+                        Producto: <b> ' . $cesta->getName() . '</b><br> 
+                        Precio: <b>'. $cesta->getPrecio() .'</b><br> 
+                        Precio: <b>'. $cesta->getCantidad() .'</b><br> 
+                        Precio: <b>'. $cesta->getTotal() .'</b><br> 
                         <input type="hidden" name="idProducto" value="'.$key.'"/>
-                        <input type="submit" value="Agregar al carrito" />
+                        <input type="submit" value="Gestionar pago" />
                     </td> 
                 </tr>';
                 }

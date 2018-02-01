@@ -59,7 +59,10 @@ class carroPDO {
         if ($this->con != FALSE) {
             session_start();
             $idUser = $_SESSION['user']['id'];
-            $sql = "select c.id, product_id, cantidad, user_id, name, precio from cesta where user_id = ".$idUser;
+            $sql = "select c.id, c.product_id, c.cantidad, p.name, p.precio "
+                    . "from cesta c, productos p "
+                    . "where c.producto_id = p.id "
+                    . "AND c.user_id = ".$idUser;
 
             $resultado = $this->con->query($sql);
 
