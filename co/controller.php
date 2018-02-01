@@ -4,8 +4,10 @@
 spl_autoload_register(function($nombreClase) {
     if ($nombreClase == "UserDAO") {
         require_once "../dao/" . $nombreClase . ".php";
-    } else {
+    } else if ($nombreClase == "Conectar") {
         require_once "../db/" . $nombreClase . ".php";
+    } else if ($nombreClase == "carroPDO") {
+        require_once "../dao/" . $nombreClase . ".php";
     }
 });
 
@@ -21,7 +23,6 @@ if (isset($idNav)) {
         $email = $_POST['mail'];
         $pass = $_POST['password'];
         $dao->registro($name, $email, $pass);
-        
     }
 
     if ($idNav == "valida") {
@@ -30,22 +31,26 @@ if (isset($idNav)) {
         $pass = $_POST['pass'];
         $dao->valida($user, $pass);
     }
-    
+
     if ($idNav == "borrar") {
-        
-          $id = $_POST['id'];
-          $dao->borrar($id);  
+
+        $id = $_POST['id'];
+        $dao->borrar($id);
     }
-    
+
     if ($idNav == "editar") {
 
         $name = $_POST['nombre'];
         $email = $_POST['email'];
         $id = $_POST['id'];
         $dao->editar($name, $email, $id);
-        
     }
-    
-    
+
+    if ($idNav == "agregar") {
+        $carroPDO = new carroPDO();
+        $idProducto = $_POST['idProducto'];
+        $carroPDO->anadirCesta($idProducto);
+        header("Location: ../webs/productos.php");
+    }
 }
 ?>

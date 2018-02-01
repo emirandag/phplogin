@@ -23,12 +23,12 @@ spl_autoload_register(function($nombreClase) {
             <input type="hidden" name="idNav" value="agregar" />
             <table border="1"> 
                 <?php
-                $products = new productosPDO();
-                $array = $products->getProductos();
-                foreach ($array as $key => $producto) {
+                $cesta = new carroPDO();
+                $array = $cesta->getCesta();
+                foreach ($array as $key => $cesta) {
                     echo '<tr> 
                     <td width="150"> 
-                        Producto: <b> ' . $producto->getName() . '</b><br> 
+                        Producto: <b> ' . $producto->get() . '</b><br> 
                         Descripcion: <b>' . $producto->getDescripcion().'</b><br> 
                         Precio: <b>'. $producto->getPrecio() .'</b><br> 
                         <input type="hidden" name="idProducto" value="'.$key.'"/>
