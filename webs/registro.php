@@ -8,18 +8,27 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Registro</title>
+        <link rel="stylesheet" href="../css/skel.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/style-wide.css" />
     </head>
     <body>
-        <h1>Registrarse</h1>
-        <div>
-            <form name="valorRegistro" method="POST" action="../co/controller.php">
-                <b>NOMBRE:</b> <input type="text" name="nombre" required/><br>
-                <b>EMAIL:</b> <input type="text" name="mail" required/><br>
-                <b>PASSWORD:</b> <input type="password" name="password" required/><br>
-                <input type="hidden" name="idNav" value="registro" />
-                <input name="registrar" type="submit" value="Registrar"/><br>
-            </form>
-        </div>
+        <section id="main" class="container 75%"> 
+                
+            
+            <div class="box" align="center">
+                <h2>
+                    Formulario PHP
+                </h2>
+                <form name="valorRegistro" method="POST" action="../co/controller.php">
+                    <b>NOMBRE:</b> <input type="text" name="nombre" required/><br>
+                    <b>EMAIL:</b> <input type="text" name="mail" required/><br>
+                    <b>PASSWORD:</b> <input type="password" name="password" required/><br>
+                    <input type="hidden" name="idNav" value="registro" />
+                    <input name="registrar" type="submit" value="Registrar"/><br>
+                </form>
+            </div>
+        </section>
     </body>
 </html>
 
