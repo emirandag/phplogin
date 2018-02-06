@@ -1,4 +1,4 @@
-<!--  http://aprendeenlinea.udea.edu.co/lms/moodle/mod/page/view.php?id=75233 -->
+
 
 <?php
 //import automatico de clases
@@ -17,28 +17,52 @@ spl_autoload_register(function($nombreClase) {
 <html> 
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <title>Productos</title>
+        <link rel="stylesheet" href="../css/skel.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/style-wide.css" />
     </head> 
     <body> 
-        <form action="../co/controller.php" method="POST"> 
-            <input type="hidden" name="idNav" value="agregar" />
-            <table border="1"> 
-                <?php
-                $products = new productosPDO();
-                $array = $products->getProductos();
-                foreach ($array as $key => $producto) {
-                    echo '<tr> 
+        <header id="header" class="skel-layers-fixed">
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="mostra_dades.php">Perfil</a></li>    
+                    <li><a href="productos.php">Productos</a></li> 
+                    <li><a href="cesta.php">Carro</a></li> 
+                </ul>
+            </nav> 
+        </header>
+        <section id="main" class="container 75%"> 
+
+
+            <div class="box" align="center">
+                <h2>
+                    ¡Escoge nuestros productos!
+                </h2>
+                <form action="../co/controller.php" method="POST"> 
+                    <input type="hidden" name="idNav" value="agregar" />
+                    <table border="1"> 
+                        <?php
+                        $products = new productosPDO();
+                        $array = $products->getProductos();
+                        foreach ($array as $key => $producto) {
+                            echo '<tr> 
                     <td width="150"> 
                         Producto: <b> ' . $producto->getName() . '</b><br> 
-                        Descripcion: <b>' . $producto->getDescripcion().'</b><br> 
-                        Precio: <b>'. $producto->getPrecio() .'</b><br> 
-                        <input type="hidden" name="idProducto" value="'.$key.'"/>
+                        Descripcion: <b>' . $producto->getDescripcion() . '</b><br> 
+                        Precio: <b>' . $producto->getPrecio() . '</b><br> 
+                        <input type="hidden" name="idProducto" value="' . $key . '"/>
                         <input type="submit" value="Agregar al carrito" />
                     </td> 
                 </tr>';
-                }
-                ?>
-            </table> 
-            
-        </form> 
+                        }
+                        ?>
+                    </table> 
+
+                </form> 
+            </div>
+        </section>
     </body> 
 </html>

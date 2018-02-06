@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Home</title>
         <link rel="stylesheet" href="../css/skel.css" />
         <link rel="stylesheet" href="../css/style.css" />
         <link rel="stylesheet" href="../css/style-wide.css" />
@@ -26,13 +26,14 @@ and open the template in the editor.
                 </ul>
             </nav> --></header>
 
-        <section id="main" class="container 75%"> <header>
+        <section id="main" class="container 75%"> 
+                
+            
+            <div class="box" align="center">
+
                 <h2>
                     Formulario PHP
                 </h2>
-            </header>
-            <div class="box" align="center">
-
                 
                 <a href="registro.php" type="button">Registrarse</a>
                 <a href="formulari_login.php">Iniciar sesión</a>

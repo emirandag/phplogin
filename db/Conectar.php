@@ -13,7 +13,6 @@ class Conectar {
     }
     
     public function getConexion() {
-        echo $this->user;
         $con = new mysqli($this->host,"iaw26540084","1234","test1");
         
         if ($con->connect_error) {

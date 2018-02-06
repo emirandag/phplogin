@@ -21,7 +21,7 @@ class UserDAO {
             if ($this->con->query($insert) === TRUE) {
                 echo "¡¡¡Se ha registrado correctamente!!!<a href='../webs/formulari_login.php'>Iniciar sesión<a>";
             } else {
-                echo "<hr>¡¡¡ERROR!!!" . $con->error . "<hr>";
+                echo "<hr>¡¡¡ERROR!!!" . $this->con->error . "<hr>";
             }
             $this->con->close();
         }

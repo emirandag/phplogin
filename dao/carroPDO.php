@@ -4,10 +4,13 @@
 spl_autoload_register(function($nombreClase) {
     switch ($nombreClase) {
         case "Conectar":
-            require_once "db/" . $nombreClase . ".php";
+            require_once "../db/" . $nombreClase . ".php";
             break;
         case "producto":
             require_once "bean/" . $nombreClase . ".php";
+            break;
+        case "carro":
+            require_once "../bean/" . $nombreClase . ".php";
             break;
     }
 });
@@ -58,10 +61,10 @@ class carroPDO {
         $cesta = array();
         if ($this->con != FALSE) {
             session_start();
-            $idUser = $_SESSION['user']['id'];
+            $idUser = $_SESSION['user']['user_id'];
             $sql = "select c.id, c.product_id, c.cantidad, p.name, p.precio "
                     . "from cesta c, productos p "
-                    . "where c.producto_id = p.id "
+                    . "where c.product_id = p.id "
                     . "AND c.user_id = ".$idUser;
 
             $resultado = $this->con->query($sql);
