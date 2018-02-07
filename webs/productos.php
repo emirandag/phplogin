@@ -41,27 +41,28 @@ spl_autoload_register(function($nombreClase) {
                 <h2>
                     ¡Escoge nuestros productos!
                 </h2>
-                <form action="../co/controller.php" method="POST"> 
-                    <input type="hidden" name="idNav" value="agregar" />
-                    <table border="1"> 
-                        <?php
-                        $products = new productosPDO();
-                        $array = $products->getProductos();
-                        foreach ($array as $key => $producto) {
-                            echo '<tr> 
+                <table border="1"> 
+                    <?php
+                    $products = new productosPDO();
+                    $array = $products->getProductos();
+                    foreach ($array as $producto) {
+                        echo '<tr> 
                     <td width="150"> 
+                    <form action="../co/controller.php" method="POST"> 
+                    <input type="hidden" name="idNav" value="agregar" />
                         Producto: <b> ' . $producto->getName() . '</b><br> 
                         Descripcion: <b>' . $producto->getDescripcion() . '</b><br> 
                         Precio: <b>' . $producto->getPrecio() . '</b><br> 
-                        <input type="hidden" name="idProducto" value="' . $key . '"/>
+                        <input type="hidden" name="idProducto" value="' . $producto->getId() . '"/>
                         <input type="submit" value="Agregar al carrito" />
+                          </form> 
                     </td> 
                 </tr>';
-                        }
-                        ?>
-                    </table> 
+                    }
+                    ?>
+                </table> 
 
-                </form> 
+
             </div>
         </section>
     </body> 

@@ -8,6 +8,8 @@ spl_autoload_register(function($nombreClase) {
         require_once "../db/" . $nombreClase . ".php";
     } else if ($nombreClase == "carroPDO") {
         require_once "../dao/" . $nombreClase . ".php";
+    }else if ($nombreClase == "Utils") {
+        require_once "../utils/" . $nombreClase . ".php";
     }
 });
 
@@ -49,6 +51,8 @@ if (isset($idNav)) {
     if ($idNav == "agregar") {
         $carroPDO = new carroPDO();
         $idProducto = $_POST['idProducto'];
+        $utils = new Utils();
+        $utils->logSQL($idProducto);
         $carroPDO->anadirCesta($idProducto);
         header("Location: ../webs/productos.php");
     }
